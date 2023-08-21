@@ -1,8 +1,18 @@
 import Footer from '@/components/home/Footer';
 import Header from '@/components/home/Header';
 import Head from 'next/head';
+import { Nanum_Gothic } from 'next/font/google';
+import HomeMain from '@/components/home/HomeMain';
+import { NextPage } from 'next';
+import { Menu } from '@/types/menu';
 
-export default function Home() {
+const font = Nanum_Gothic({ subsets: ['latin'], weight: ['400', '700'] });
+
+interface Props {
+  menus: Menu[];
+}
+
+const Home: NextPage<Props> = ({ menus }) => {
   return (
     <>
       <Head>
@@ -14,9 +24,26 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <main>스타벅스 홈 메인 화면</main>
-      <Footer />
+      <div className={font.className}>
+        <Header menus={menus} />
+        <HomeMain />
+        <Footer />
+      </div>
     </>
   );
+};
+
+export default Home;
+
+export async function getStaticProps() {
+  // 개발 환경에서의 절대 경로 설정 = http://localhost:3000/api/stores
+  const menus = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/menus`
+  ).then((res) => res.json());
+
+  console.log('sadsad');
+
+  return {
+    props: { menus },
+  };
 }
