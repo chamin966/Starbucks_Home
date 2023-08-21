@@ -1,0 +1,10 @@
+@import '../common/variables';
+
+.header {
+  width: 100%;
+  background-color: $header-backgroud-color;
+  border-bottom: 1px solid $header-border-color;
+  // position: fixed;
+  top: 0;
+  z-index: 9;
+}
