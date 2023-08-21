@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ menus }) => {
-  console.log('데이터 API화 성공:', menus);
   return (
     <>
       <Head>
@@ -26,7 +25,7 @@ const Home: NextPage<Props> = ({ menus }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={font.className}>
-        <Header />
+        <Header menus={menus} />
         <HomeMain />
         <Footer />
       </div>

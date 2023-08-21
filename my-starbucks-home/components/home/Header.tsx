@@ -1,9 +1,14 @@
 import styles from '@/styles/import/Header.module.scss';
+import { Menu } from '@/types/menu';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CgSearch } from 'react-icons/cg';
 
-function Header() {
+type Props = {
+  menus: Menu[];
+};
+
+function Header({ menus }: Props) {
   return (
     <header className={styles['header']}>
       <div className={styles['inner']}>
@@ -41,27 +46,42 @@ function Header() {
           </div>
         </div>
         <ul className={styles['header__main-menu']}>
-          <li className={styles['main-menu__item']}>
-            <div className={styles['item__name']}>COFFEE</div>
-            <div className={styles['item__dropdown']}>
-              <ul className={`${styles['dropdown-list']} ${styles['inner']}`}>
-                <li className={styles['dropdown-item']}>
-                  <h4>커피</h4>
-                  <ul>
-                    <li>스타벅스 원두</li>
-                    <li>스타벅스 비아</li>
-                    <li>스타벅스 오리가미</li>
-                  </ul>
-                </li>
-              </ul>
-              <div className={styles['dropdown__info']}>
-                <div className={styles['inner']}>
-                  <h4>나와 어울리는 커피 찾기</h4>
-                  <p>스타벅스가 여러분에게 어울리는 커피를 찾아드립니다.</p>
+          {menus.map((menu, i) => (
+            <li key={i} className={styles['main-menu__item']}>
+              <div className={styles['item__name']}>{menu.category}</div>
+              <div className={styles['item__dropdown']}>
+                <ul className={`${styles['dropdown-list']} ${styles['inner']}`}>
+                  {menu.dropdown.map((item, i) => (
+                    <li
+                      key={'dropdown ounter menu' + i}
+                      className={styles['dropdown-item']}
+                    >
+                      <h4>{item.name}</h4>
+                      <ul>
+                        {item.contents.map((content, i) => (
+                          <li key={'dropdown inner hovering upper menu' + i}>
+                            {content}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+                <div className={styles['dropdown__info']}>
+                  <div
+                    className={`${styles['info__contents']} ${styles['inner']}`}
+                  >
+                    {menu.textureInfo.map((info, i) => (
+                      <div key={'dropdown inner hovering lower menu' + i}>
+                        <h4>{info.title}</h4>
+                        <p>{info.contents}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
+            </li>
+          ))}
         </ul>
       </div>
     </header>

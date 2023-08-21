@@ -178,14 +178,20 @@
         font-size: $dropdown-menu-info-font-size;
         background-image: url('../../public/images/main_menu_pattern.jpg');
 
-        h4 {
-          color: $dropdown-menu-info-font-color;
-          font-weight: 700;
-        }
+        .info__contents {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
 
-        p {
-          color: $green-color;
-          margin: 4px 0px 14px;
+          h4 {
+            color: $dropdown-menu-info-font-color;
+            font-weight: 700;
+            margin-bottom: 5px;
+          }
+
+          p {
+            color: $green-color;
+          }
         }
       }
     }
