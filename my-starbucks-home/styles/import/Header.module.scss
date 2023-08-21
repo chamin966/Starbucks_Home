@@ -15,6 +15,10 @@
   3. margin: auto
   4. width */
 
+.inner {
+  @extend %placeholer-inner;
+}
+
 .header {
   width: 100%;
   background-color: $header-backgroud-color;
@@ -23,8 +27,7 @@
   top: 0;
   z-index: 9;
 
-  &__inner {
-    @extend %placeholer_inner;
+  > .inner {
     height: 120px;
   }
 
@@ -109,6 +112,81 @@
         right: 10px;
         margin: auto;
         pointer-events: none;
+      }
+    }
+  }
+
+  &__main-menu {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+
+    .main-menu__item {
+      &:hover {
+        background-color: $dropdown-menu-background-color;
+        color: $green-color;
+        border-radius: 6px 6px 0px 0px; /* 좌상단, 우상단만 모서리 깎기 */
+
+        .item__dropdown {
+          display: block;
+        }
+      }
+
+      .item__name {
+        font-size: $sub-menu-title-font-size;
+        padding: 10px 20px 34px 20px;
+      }
+
+      .item__dropdown {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        background-color: $dropdown-menu-background-color;
+        display: none;
+
+        .dropdown-list {
+          display: flex; /* 요소들이 수평으로 정렬 되도록 */
+          padding: 20px 0;
+        }
+
+        .dropdown-item {
+          width: 220px;
+
+          h4 {
+            padding: 3px 0px 12px 0px;
+            font-size: $dropdown-menu-small-font-size;
+            color: white;
+          }
+
+          ul > li {
+            padding: 5px 0;
+            font-size: 12px;
+            color: #999;
+            cursor: pointer;
+
+            &:hover {
+              color: $green-color;
+            }
+          }
+        }
+      }
+
+      .dropdown__info {
+        padding: 26px 0px;
+        font-size: $dropdown-menu-info-font-size;
+        background-image: url('../../public/images/main_menu_pattern.jpg');
+
+        h4 {
+          color: $dropdown-menu-info-font-color;
+          font-weight: 700;
+        }
+
+        p {
+          color: $green-color;
+          margin: 4px 0px 14px;
+        }
       }
     }
   }
