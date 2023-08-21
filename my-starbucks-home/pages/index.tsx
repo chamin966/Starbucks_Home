@@ -1,6 +1,9 @@
 import Footer from '@/components/home/Footer';
 import Header from '@/components/home/Header';
 import Head from 'next/head';
+import { Nanum_Gothic } from 'next/font/google';
+
+const font = Nanum_Gothic({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Home() {
   return (
@@ -14,9 +17,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <main>스타벅스 홈 메인 화면</main>
-      <Footer />
+      <div className={font.className}>
+        <Header />
+        <main>스타벅스 홈 메인 화면</main>
+        <Footer />
+      </div>
     </>
   );
 }
