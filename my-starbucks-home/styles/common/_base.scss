@@ -1,8 +1,4 @@
-@font-face {
-  font-family: 'NanumSquareNeo';
-  font-weight: 200;
-  src: url('/fonts/NanumSquareNeo-aLt.ttf') format('truetype');
-}
+@use 'scss-reset/reset';
 
 * {
   box-sizing: border-box;

@@ -37,4 +37,79 @@
     left: 0;
     margin: auto;
   }
+
+  &__sub-menu {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+
+    .menu {
+      display: flex;
+
+      a {
+        font-size: 12px;
+        padding: 11px 16px;
+        display: block;
+        color: $header-a-tag-color;
+
+        &:hover {
+          color: $header-a-tag-hover-color;
+        }
+      }
+
+      li::before {
+        /* 메뉴 구분선 */
+        content: '';
+        display: block;
+        width: 1px;
+        height: 12px;
+        background-color: #e5e5e5;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      li:first-child::before {
+        /* 첫번째 요소를 삭제, 가장 왼쪽의 구분선 삭제 */
+        display: none;
+      }
+    }
+
+    .search {
+      position: relative;
+      height: 34px;
+
+      input {
+        width: 34px;
+        height: 34px;
+        box-sizing: border-box;
+        padding: 4px 10px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid $input-border-color;
+        background-color: white;
+        color: $input-font-color;
+        font-size: $input-font-size;
+
+        &:hover,
+        &:focus {
+          width: 200px;
+          border: 1px solid $green-color;
+          padding: 4px 30px 4px 10px;
+        }
+      }
+
+      .icon {
+        height: 24px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        margin: auto;
+        pointer-events: none;
+      }
+    }
+  }
 }

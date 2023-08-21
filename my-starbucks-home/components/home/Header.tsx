@@ -1,6 +1,7 @@
 import styles from '@/styles/import/Header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CgSearch } from 'react-icons/cg';
 
 function Header() {
   return (
@@ -17,6 +18,26 @@ function Header() {
               priority
             />
           </Link>
+        </div>
+        <div className={styles['header__sub-menu']}>
+          <ul className={styles['menu']}>
+            <li>
+              <Link href="/signin">Sign In</Link>
+            </li>
+            <li>
+              <Link href="#">My Starbucks</Link>
+            </li>
+            <li>
+              <Link href="#">Customer Service & IdeLinks</Link>
+            </li>
+            <li>
+              <Link href="#">Find a Store</Link>
+            </li>
+          </ul>
+          <div className={styles['search']}>
+            <input type="text" />
+            <CgSearch className={styles['icon']} />
+          </div>
         </div>
       </div>
     </header>
