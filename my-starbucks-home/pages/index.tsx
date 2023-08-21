@@ -3,10 +3,17 @@ import Header from '@/components/home/Header';
 import Head from 'next/head';
 import { Nanum_Gothic } from 'next/font/google';
 import HomeMain from '@/components/home/HomeMain';
+import { NextPage } from 'next';
+import { Menu } from '@/types/menu';
 
 const font = Nanum_Gothic({ subsets: ['latin'], weight: ['400', '700'] });
 
-export default function Home() {
+interface Props {
+  menus: Menu[];
+}
+
+const Home: NextPage<Props> = ({ menus }) => {
+  console.log('데이터 API화 성공:', menus);
   return (
     <>
       <Head>
@@ -25,4 +32,19 @@ export default function Home() {
       </div>
     </>
   );
+};
+
+export default Home;
+
+export async function getStaticProps() {
+  // 개발 환경에서의 절대 경로 설정 = http://localhost:3000/api/stores
+  const menus = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/menus`
+  ).then((res) => res.json());
+
+  console.log('sadsad');
+
+  return {
+    props: { menus },
+  };
 }
