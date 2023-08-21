@@ -1,10 +1,40 @@
 @import '../common/variables';
+@import '../common/placeholders';
+
+/* 수직가운데 정렬 할 때 필요한 것들
+  1. height
+  2. top
+  3. bottom
+  4. margin: auto
+  5. position: absolute(자신에)
+  6. position: relative, fixed, absolute(부모에) */
+
+/* 수평가운데 정렬 할 때 필요한 것들
+  1. left
+  2. right
+  3. margin: auto
+  4. width */
 
 .header {
   width: 100%;
   background-color: $header-backgroud-color;
   border-bottom: 1px solid $header-border-color;
-  // position: fixed;
+  position: fixed;
   top: 0;
   z-index: 9;
+
+  &__inner {
+    @extend %placeholer_inner;
+    height: 120px;
+  }
+
+  &__logo {
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
 }
