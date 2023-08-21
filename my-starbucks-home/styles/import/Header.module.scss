@@ -196,4 +196,36 @@
       }
     }
   }
+
+  &__badges {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 132px;
+    right: 12px;
+
+    img {
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: $shadow-effect;
+    }
+  }
+}
+
+.scroll-to-top-button {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 30px;
+  bottom: 30px;
+  height: 42px;
+  width: 42px;
+  border: 2px solid white;
+  color: white;
+  font-size: 22px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: $shadow-effect;
 }
