@@ -4,12 +4,66 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CgSearch } from 'react-icons/cg';
 import { IoArrowUp } from 'react-icons/io5';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 
 type Props = {
   menus: Menu[];
 };
 
 function Header({ menus }: Props) {
+  const badgesRef = useRef<HTMLDivElement>(null);
+  const scrollToTopBtnRef = useRef<HTMLButtonElement>(null);
+
+  const evalScrollY = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 500) {
+      gsap.to(badgesRef.current, {
+        opacity: 0,
+        duration: 0.6,
+        display: 'none',
+      });
+      gsap.to(scrollToTopBtnRef.current, {
+        ease: 'none',
+        x: 0,
+        duration: 0.2,
+      });
+    } else {
+      gsap.to(badgesRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        display: 'flex',
+      });
+      gsap.to(scrollToTopBtnRef.current, {
+        ease: 'none',
+        x: 100,
+        duration: 0.2,
+      });
+    }
+  };
+
+  const scrollToTop = () => {
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.to(window, {
+      duration: 0,
+      scrollTo: 0,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', evalScrollY);
+    return () => {
+      window.removeEventListener('scroll', evalScrollY);
+    };
+  });
+
+  useEffect(() => {
+    // 최초 시작시에 스크롤 위치를 상단으로 올리고, scrollTop 버튼이 보이지 않도록 하기 위함
+    scrollToTop();
+    evalScrollY();
+  }, []);
+
   return (
     <>
       <header className={styles['header']}>
@@ -88,7 +142,7 @@ function Header({ menus }: Props) {
             ))}
           </ul>
         </div>
-        <div className={styles['header__badges']}>
+        <div className={styles['header__badges']} ref={badgesRef}>
           <Image
             src={'/images/badge3.jpg'}
             alt="Badge"
@@ -99,13 +153,17 @@ function Header({ menus }: Props) {
           <Image
             src={'/images/badge2.jpg'}
             alt="Badge"
-            width={136}
+            width={130}
             height={86}
             priority
           />
         </div>
       </header>
-      <button className={styles['scroll-to-top-button']}>
+      <button
+        className={styles['scroll-to-top-button']}
+        ref={scrollToTopBtnRef}
+        onClick={scrollToTop}
+      >
         <IoArrowUp />
       </button>
     </>
