@@ -1,11 +1,29 @@
 import styles from '@/styles/import/Visual.module.scss';
+import { gsap } from 'gsap';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
 function Visual() {
+  const fadeRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    fadeRefs.current.forEach((fadeRef, index) => {
+      gsap.to(fadeRef, {
+        ease: 'none',
+        duration: 0.7,
+        delay: (index + 1) * 0.7,
+        opacity: 1,
+      });
+    });
+  }, []);
+
   return (
     <section className={styles['visual']}>
       <div className={styles['visual__inner']}>
-        <div className={`${styles['visual__title']} ${styles['fade-in']}`}>
+        <div
+          className={`${styles['visual__title']} ${styles['fade-in']}`}
+          ref={(el) => el && fadeRefs.current.push(el)}
+        >
           <Image
             src="/images/visual_title.png"
             alt="STARBUCKS DELIGHTFUL START TO THE YEARS"
@@ -18,7 +36,10 @@ function Visual() {
           </a>
         </div>
         <div>
-          <div className={styles['fade-in']}>
+          <div
+            className={styles['fade-in']}
+            ref={(el) => el && fadeRefs.current.push(el)}
+          >
             <Image
               src="/images/visual_cup1.png"
               alt="new oatmeal latte"
@@ -38,7 +59,10 @@ function Visual() {
           </div>
         </div>
         <div>
-          <div className={styles['fade-in']}>
+          <div
+            className={styles['fade-in']}
+            ref={(el) => el && fadeRefs.current.push(el)}
+          >
             <Image
               src="/images/visual_cup2.png"
               alt="new starbucks caramel crumble mocha"
@@ -57,17 +81,18 @@ function Visual() {
             />
           </div>
         </div>
-        <div>
-          <div className={styles['fade-in']}>
-            <Image
-              src="/images/visual_spoon.png"
-              alt="Spoon"
-              className={styles['spoon']}
-              width={413}
-              height={218}
-              priority
-            />
-          </div>
+        <div
+          className={styles['fade-in']}
+          ref={(el) => el && fadeRefs.current.push(el)}
+        >
+          <Image
+            src="/images/visual_spoon.png"
+            alt="Spoon"
+            className={styles['spoon']}
+            width={413}
+            height={218}
+            priority
+          />
         </div>
       </div>
     </section>
