@@ -2,7 +2,7 @@ import Visual from './sections/Visual';
 
 function Sections() {
   return (
-    <main style={{ marginTop: '120px' }}>
+    <main>
       <Visual />
     </main>
   );
