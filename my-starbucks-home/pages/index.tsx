@@ -16,7 +16,7 @@ const Home: NextPage<Props> = ({ menus }) => {
   return (
     <>
       <Head>
-        <title>Starbucks Coffee Korea</title>
+        <title>My Starbucks</title>
         <meta
           name="description"
           content="스타벅스는 세계에서 가장 큰 다국적 커피 전문점으로, 64개국에서 총 23,187개의 매점을 운영하고 있습니다."
