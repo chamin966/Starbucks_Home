@@ -3,3 +3,33 @@
   margin: 0 auto;
   position: relative; // 내부에 absolute 요소들이 담길 예정
 }
+
+%plchd-btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box; /* 요소가 커지지 않도록 */
+  display: block;
+  transition: all 0.4s linear; /* 전환효과 자연스럽게 */
+
+  &:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  &.btn--white {
+    color: #fff;
+    border-color: #fff;
+
+    &:hover {
+      color: #333;
+      background-color: #fff;
+    }
+  }
+}

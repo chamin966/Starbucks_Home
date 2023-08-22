@@ -29,7 +29,7 @@ function Footer() {
           </li>
         </ul>
 
-        <div className={styles['btn-group']}>
+        <div className={styles['footer__btn-group']}>
           <Link href="#" className={`${styles['btn']} ${styles['btn--white']}`}>
             찾아오시는 길
           </Link>

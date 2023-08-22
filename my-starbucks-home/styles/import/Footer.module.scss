@@ -10,7 +10,7 @@
   background-color: $footer-backgroud-color;
   border-top: 1px solid $footer-border-color;
 
-  .footer__menu {
+  &__menu {
     display: flex;
     justify-content: center;
 
@@ -43,6 +43,18 @@
       .green {
         color: $green-color;
       }
+    }
+  }
+
+  &__btn-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .btn {
+      @extend %plchd-btn;
+      font-size: $footer-btn-font-size;
     }
   }
 }
