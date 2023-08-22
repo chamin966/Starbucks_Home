@@ -2,9 +2,9 @@ import Footer from '@/components/home/Footer';
 import Header from '@/components/home/Header';
 import Head from 'next/head';
 import { Nanum_Gothic } from 'next/font/google';
-import HomeMain from '@/components/home/HomeMain';
 import { NextPage } from 'next';
 import { Menu } from '@/types/menu';
+import Sections from '@/components/home/Sections';
 
 const font = Nanum_Gothic({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -26,7 +26,7 @@ const Home: NextPage<Props> = ({ menus }) => {
       </Head>
       <div className={font.className}>
         <Header menus={menus} />
-        <HomeMain />
+        <Sections />
         <Footer />
       </div>
     </>
@@ -40,8 +40,6 @@ export async function getStaticProps() {
   const menus = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/menus`
   ).then((res) => res.json());
-
-  console.log('sadsad');
 
   return {
     props: { menus },
