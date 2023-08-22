@@ -41,24 +41,26 @@ function Footer() {
           </Link>
         </div>
 
-        <div className={styles['info']}>
+        <div className={styles['footer__info']}>
           <span>사업자등록번호 201-81-21515</span>
           <span>(주)스타벅스 코리아 대표이사 이석구</span>
           <span>TEL : 02) 3015-1100 / FAX : 02) 3015-1106</span>
           <span>개인정보 책임자 : 강기원</span>
         </div>
 
-        <p className="copyright">
-          &copy; <span className="this-year"></span> Starbucks Coffee Company.
-          All Rights Reserved.
+        <p className={styles['footer__copyright']}>
+          &copy; Starbucks Coffee Company. All Rights Reserved.
         </p>
-        <Image
-          src="/images/starbucks_logo_only_text.png"
-          alt="STAR BUCKS"
-          width={142}
-          height={14}
-          priority
-        />
+
+        <div className={styles['footer__logo']}>
+          <Image
+            src="/images/starbucks_logo_only_text.png"
+            alt="STAR BUCKS"
+            width={142}
+            height={14}
+            priority
+          />
+        </div>
       </div>
     </footer>
   );
