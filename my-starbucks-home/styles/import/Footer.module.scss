@@ -1,6 +1,82 @@
 @import '../common/variables';
+@import '../common/placeholders';
+
+.inner {
+  @extend %plchd-inner;
+  padding: 40px 0px 60px 0px;
+}
 
 .footer {
   background-color: $footer-backgroud-color;
   border-top: 1px solid $footer-border-color;
+  font-size: $footer-font-size;
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: ''; /* before 쓰면 무조건 content 있어야됨 */
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background-color: $footer-dot-color;
+        top: 0;
+        bottom: 0;
+        right: -1px;
+        margin: auto;
+      }
+
+      &:last-child::before {
+        display: none;
+      }
+
+      a {
+        color: $footer-a-tag-color;
+        padding: 15px; // before에 붙은 구분자 때문에 gap이 아닌 padding;
+        display: block;
+      }
+
+      .green {
+        color: $green-color;
+      }
+    }
+  }
+
+  &__btn-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .btn {
+      @extend %plchd-btn;
+      font-size: $footer-font-size;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+
+    span {
+      color: $footer-font-color;
+    }
+  }
+
+  &__copyright {
+    color: $footer-font-color;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  &__logo {
+    text-align: center;
+    margin-top: 30px;
+  }
 }
