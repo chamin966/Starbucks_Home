@@ -34,4 +34,14 @@
       background-color: $common-white-button-color;
     }
   }
+
+  &.btn.btn--brown {
+    border-color: #592b18;
+    color: #592b18;
+
+    &:hover {
+      color: #fff;
+      background-color: #592b18;
+    }
+  }
 }

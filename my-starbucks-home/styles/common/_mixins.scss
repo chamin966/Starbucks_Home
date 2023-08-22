@@ -1,0 +1,12 @@
+@mixin visualCup($img-bottom, $img-right, $text-top, $text-right) {
+  &.image {
+    position: absolute;
+    bottom: $img-bottom;
+    right: $img-right;
+  }
+  &.text {
+    position: absolute;
+    top: $text-top;
+    right: $text-right;
+  }
+}
