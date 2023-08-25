@@ -2,12 +2,13 @@ import styles from '@/styles/import/Notice.module.scss';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { LuFoldVertical } from 'react-icons/lu';
 import { LuUnfoldVertical } from 'react-icons/lu';
+import { gsap } from 'gsap';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import Slider from 'react-slick';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 function Notice() {
   const settings = {
@@ -24,9 +25,23 @@ function Notice() {
   };
 
   const [isFold, setIsFold] = useState<boolean>(false);
+  const promotionRef = useRef<HTMLDivElement | null>(null);
 
   const onClickFoldingIcon = () => {
     setIsFold(!isFold);
+    if (isFold) {
+      gsap.to(promotionRef.current, {
+        duration: 0.3,
+        ease: 'power1',
+        height: 0,
+      });
+    } else {
+      gsap.to(promotionRef.current, {
+        duration: 0.3,
+        ease: 'power1',
+        height: '300px',
+      });
+    }
   };
 
   return (
@@ -62,11 +77,12 @@ function Notice() {
           <div className={styles['inner__right']}>
             <h2>스타벅스 프로모션</h2>
             <div className={styles['inner__icon']} onClick={onClickFoldingIcon}>
-              {isFold ? <LuUnfoldVertical /> : <LuFoldVertical />}
+              {isFold ? <LuFoldVertical /> : <LuUnfoldVertical />}
             </div>
           </div>
         </div>
       </div>
+      <div className={styles['notice__promotion']} ref={promotionRef}></div>
     </section>
   );
 }
