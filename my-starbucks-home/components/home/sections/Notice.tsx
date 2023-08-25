@@ -1,9 +1,13 @@
 import styles from '@/styles/import/Notice.module.scss';
-import { IoAddCircle } from 'react-icons/io5';
+import { BsPlusCircleFill } from 'react-icons/bs';
+import { LuFoldVertical } from 'react-icons/lu';
+import { LuUnfoldVertical } from 'react-icons/lu';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 import Slider from 'react-slick';
+import { useState } from 'react';
 
 function Notice() {
   const settings = {
@@ -17,6 +21,12 @@ function Notice() {
     autoplaySpeed: 2000,
     arrows: false,
     cssEase: 'linear',
+  };
+
+  const [isFold, setIsFold] = useState<boolean>(false);
+
+  const onClickFoldingIcon = () => {
+    setIsFold(!isFold);
   };
 
   return (
@@ -47,7 +57,13 @@ function Notice() {
                 <Link href="#">[당첨자 발표] 뉴이어 전자영수증 이벤트</Link>
               </div>
             </Slider>
-            <IoAddCircle style={{ fontSize: '30px' }} />
+            <BsPlusCircleFill className={styles['inner__icon']} />
+          </div>
+          <div className={styles['inner__right']}>
+            <h2>스타벅스 프로모션</h2>
+            <div className={styles['inner__icon']} onClick={onClickFoldingIcon}>
+              {isFold ? <LuUnfoldVertical /> : <LuFoldVertical />}
+            </div>
           </div>
         </div>
       </div>

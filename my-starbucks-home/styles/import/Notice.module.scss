@@ -29,6 +29,16 @@
       @extend %plchd-inner;
       display: flex;
 
+      h2 {
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .inner__icon {
+        font-size: 23px;
+        cursor: pointer;
+      }
+
       .inner__left {
         display: flex;
         justify-content: center;
@@ -38,16 +48,20 @@
         background-color: #333;
         color: #fff;
 
-        h2 {
-          font-size: 17px;
-          font-weight: 700;
-        }
-
         .inner__swiper {
           font-size: 16px;
           width: 80%;
           padding: 0 20px;
         }
+      }
+
+      .inner__right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        gap: 35px;
+        color: #333;
       }
     }
   }
