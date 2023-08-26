@@ -17,7 +17,6 @@ function Header({ menus }: Props) {
   const scrollToTopBtnRef = useRef<HTMLButtonElement>(null);
 
   const evalScrollY = () => {
-    console.log(window.scrollY);
     if (window.scrollY > 500) {
       gsap.to(badgesRef.current, {
         opacity: 0,
