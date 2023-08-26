@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { useRef, useState } from 'react';
 import NoticeLineSlide from '@/components/slide/NoticeLineSlide';
 import NoticePromotionSlide from '@/components/slide/NoitcePromotionSlide';
+import Rewards from './Rewards';
 
 function Notice() {
   const [isFold, setIsFold] = useState<boolean>(true);
@@ -52,6 +53,9 @@ function Notice() {
       </div>
       <div className={styles['notice__promotion']} ref={promotionRef}>
         <NoticePromotionSlide />
+      </div>
+      <div>
+        <Rewards />
       </div>
     </section>
   );

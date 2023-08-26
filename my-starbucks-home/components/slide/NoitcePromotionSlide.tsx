@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
 function NoticePromotionSlide() {
+  // TODO: promotion Image 태그 alt 작성, 백그라운드 컬러 넣기
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const options: EmblaOptionsType = { loop: true };

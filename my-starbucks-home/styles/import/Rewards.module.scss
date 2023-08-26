@@ -1,0 +1,58 @@
+@import '../common/_placeholders.scss';
+
+.rewards {
+  position: relative;
+
+  .bg-left,
+  .bg-right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+  }
+
+  .bg-left {
+    background-color: #272727;
+    left: 0;
+    top: 0;
+  }
+
+  .bg-right {
+    background-color: #d5c798;
+    right: 0;
+    top: 0;
+  }
+
+  .inner {
+    @extend %plchd-inner;
+    height: 241px;
+    position: relative;
+    object-fit: cover;
+    background-image: url('../../public/images/rewards.jpg');
+
+    .btn-group {
+      position: absolute;
+      right: 0;
+      bottom: 24px;
+      width: 250px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .btn {
+        @extend %plchd-btn;
+
+        &.sign-up {
+          margin-right: 10px;
+        }
+
+        &.sign-in {
+          width: 110px;
+        }
+
+        &.gift {
+          flex: 1;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
