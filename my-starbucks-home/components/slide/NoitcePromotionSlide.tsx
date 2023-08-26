@@ -45,6 +45,14 @@ function NoticePromotionSlide() {
     '/images/promotion_slide5.jpg',
   ];
 
+  const altTexts = [
+    '2017 뉴이어, 스타벅스와 함께 즐겁고 활기차게 시작하세요!',
+    '기간 내 스타벅스 카드 e-Gift를 3만원 이상 선물 시, 아메리카노 e-쿠폰을 드립니다.',
+    '뉴이어 푸드와 제조 음료를 세트로 구매 시, 뉴이어 음료 BOGO(1+1) 쿠폰을 드립니다.',
+    '신년 MD 상품 포함 3만원 이상 구매 고객께 아메리카노(톨사이즈) 쿠폰을 드립니다.',
+    '2017 DIGITAL LUCKY DRAW 100% 당첨의 행운을 드립니다!',
+  ];
+
   return (
     <div className={styles['embla']}>
       <div className={styles['embla__viewport']} ref={emblaRef}>
@@ -56,7 +64,7 @@ function NoticePromotionSlide() {
                 selectedIndex === i ? styles['center__slide'] : ''
               }`}
             >
-              <Image src={path} alt="promotion" sizes="819px" fill />
+              <Image src={path} alt={altTexts[i]} sizes="819px" fill />
             </div>
           ))}
         </div>

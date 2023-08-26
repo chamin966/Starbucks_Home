@@ -1,5 +1,4 @@
 import styles from '@/styles/import/Rewards.module.scss';
-import Image from 'next/image';
 
 function Rewards() {
   return (
