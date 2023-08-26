@@ -3,8 +3,8 @@ import { BsPlusCircleFill } from 'react-icons/bs';
 import { LuFoldVertical } from 'react-icons/lu';
 import { LuUnfoldVertical } from 'react-icons/lu';
 import { gsap } from 'gsap';
-
 import { useRef, useState } from 'react';
+import NoticeLineSlide from '@/components/slide/NoticeLineSlide';
 
 function Notice() {
   const [isFold, setIsFold] = useState<boolean>(false);
@@ -35,7 +35,7 @@ function Notice() {
         <div className={styles['inner']}>
           <div className={styles['inner__left']}>
             <h2>공지사항</h2>
-            <div>슬라이드</div>
+            <NoticeLineSlide />
             <BsPlusCircleFill className={styles['inner__icon']} />
           </div>
           <div className={styles['inner__right']}>
