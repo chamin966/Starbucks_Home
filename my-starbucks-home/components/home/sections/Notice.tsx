@@ -4,26 +4,9 @@ import { LuFoldVertical } from 'react-icons/lu';
 import { LuUnfoldVertical } from 'react-icons/lu';
 import { gsap } from 'gsap';
 
-import Image from 'next/image';
-import Link from 'next/link';
-
-import Slider from 'react-slick';
 import { useRef, useState } from 'react';
 
 function Notice() {
-  const settings = {
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    autoplay: true,
-    speed: 500,
-    autoplaySpeed: 2000,
-    arrows: false,
-    cssEase: 'linear',
-  };
-
   const [isFold, setIsFold] = useState<boolean>(false);
   const promotionRef = useRef<HTMLDivElement | null>(null);
 
@@ -39,7 +22,7 @@ function Notice() {
       gsap.to(promotionRef.current, {
         duration: 0.3,
         ease: 'power1',
-        height: '300px',
+        height: '100%',
       });
     }
   };
@@ -52,26 +35,7 @@ function Notice() {
         <div className={styles['inner']}>
           <div className={styles['inner__left']}>
             <h2>공지사항</h2>
-            <Slider {...settings} className={styles['inner__swiper']}>
-              <div>
-                <Link href="#">
-                  크리스마스 & 연말연시 스타벅스 매장 영업시간 변경 안내
-                </Link>
-              </div>
-              <div>
-                <Link href="#">
-                  [당첨자 발표] 2021 스타벅스 플래너 영수증 이벤트
-                </Link>
-              </div>
-              <div>
-                <Link href="#">
-                  스타벅스커피 코리아 애플리케이션 버전 업데이트 안내
-                </Link>
-              </div>
-              <div>
-                <Link href="#">[당첨자 발표] 뉴이어 전자영수증 이벤트</Link>
-              </div>
-            </Slider>
+            <div>슬라이드</div>
             <BsPlusCircleFill className={styles['inner__icon']} />
           </div>
           <div className={styles['inner__right']}>
@@ -82,7 +46,9 @@ function Notice() {
           </div>
         </div>
       </div>
-      <div className={styles['notice__promotion']} ref={promotionRef}></div>
+      <div className={styles['notice__promotion']} ref={promotionRef}>
+        <div>슬라이드</div>
+      </div>
     </section>
   );
 }
