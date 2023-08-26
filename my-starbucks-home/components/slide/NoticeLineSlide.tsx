@@ -1,6 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaOptionsType } from 'embla-carousel-react';
-import styles from '@/styles/import/NoticeLineSlider.module.scss';
+import styles from '@/styles/import/NoticeLineSlide.module.scss';
 import Autoplay from 'embla-carousel-autoplay';
 import Link from 'next/link';
 
@@ -8,7 +8,7 @@ function NoticeLineSlide() {
   const options: EmblaOptionsType = { loop: true, axis: 'y' };
   const autoplayOptions = {
     delay: 2000,
-    // stopOnInteraction: false,
+    stopOnInteraction: false,
   };
   const [emblaRef] = useEmblaCarousel(options, [Autoplay(autoplayOptions)]);
 

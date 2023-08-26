@@ -5,24 +5,28 @@ import { LuUnfoldVertical } from 'react-icons/lu';
 import { gsap } from 'gsap';
 import { useRef, useState } from 'react';
 import NoticeLineSlide from '@/components/slide/NoticeLineSlide';
+import NoticePromotionSlide from '@/components/slide/NoitcePromotionSlide';
 
 function Notice() {
-  const [isFold, setIsFold] = useState<boolean>(false);
+  const [isFold, setIsFold] = useState<boolean>(true);
   const promotionRef = useRef<HTMLDivElement | null>(null);
 
   const onClickFoldingIcon = () => {
-    setIsFold(!isFold);
     if (isFold) {
+      setIsFold(false);
+
       gsap.to(promotionRef.current, {
         duration: 0.3,
         ease: 'power1',
         height: 0,
       });
     } else {
+      setIsFold(true);
+
       gsap.to(promotionRef.current, {
         duration: 0.3,
         ease: 'power1',
-        height: '100%',
+        height: '593px',
       });
     }
   };
@@ -47,7 +51,7 @@ function Notice() {
         </div>
       </div>
       <div className={styles['notice__promotion']} ref={promotionRef}>
-        <div>슬라이드</div>
+        <NoticePromotionSlide />
       </div>
     </section>
   );
