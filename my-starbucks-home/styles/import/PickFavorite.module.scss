@@ -1,0 +1,23 @@
+@import '../common/placeholders';
+
+.pick-favorite {
+  background-image: url('../../public/images/favorite_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /* 스크롤 될 때 같이 스크롤 되지 않고 뷰포트 부분에 고정되어서 움직이지 않음 */
+  background-size: cover; /* 배경 이미지를 요소에 더 넓은 너비에 맞춰서 출력 */
+  // height: 1000px;
+
+  .inner {
+    @extend %plchd-inner;
+    padding: 110px 0;
+
+    .text-group {
+      width: 370px;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: flex-end;
+      gap: 60px;
+    }
+  }
+}
