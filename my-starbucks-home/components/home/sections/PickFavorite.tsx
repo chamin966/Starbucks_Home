@@ -6,15 +6,18 @@ import { useEffect, useRef } from 'react';
 function PickFavorite() {
   const logoRef = useRef<HTMLImageElement | null>(null);
   const textRef = useRef<HTMLImageElement | null>(null);
+  const btnRef = useRef<HTMLButtonElement | null>(null);
 
   const evalScrollY = () => {
     let tl = gsap.timeline();
     if (window.scrollY > 2350) {
       tl.to(logoRef.current, { duration: 0.5, opacity: 1, x: 100 });
       tl.to(textRef.current, { duration: 1, opacity: 1, x: 100 });
+      tl.to(btnRef.current, { duration: 1, opacity: 1, x: 0 });
     } else {
-      tl.to(logoRef.current, { duration: 0, opacity: 0, x: 0 });
-      tl.to(textRef.current, { duration: 0, opacity: 0, x: 0 });
+      gsap.to(logoRef.current, { duration: 0, opacity: 0, x: 0 });
+      gsap.to(textRef.current, { duration: 0, opacity: 0, x: 0 });
+      gsap.to(btnRef.current, { duration: 0, opacity: 0, x: -100 });
     }
   };
 
@@ -44,6 +47,12 @@ function PickFavorite() {
             height={156}
           />
         </div>
+        <button
+          ref={btnRef}
+          className={`${styles['btn']} ${styles['btn--white']}`}
+        >
+          자세히 보기
+        </button>
       </div>
     </section>
   );
