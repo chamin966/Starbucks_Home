@@ -1,0 +1,55 @@
+@import '../common/placeholders';
+
+.find-store {
+  background-image: url(../../public/images/find_store_bg.jpg);
+  height: 400px;
+
+  .inner {
+    @extend %plchd-inner;
+
+    .deco1 {
+      position: absolute;
+      top: 0;
+      left: 400px;
+    }
+
+    .deco2 {
+      position: absolute;
+      bottom: -400px;
+      right: 0;
+    }
+
+    .imgs {
+      border-radius: 50%;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      position: absolute;
+    }
+
+    .img1 {
+      top: -60px;
+      left: 0;
+    }
+
+    .img2 {
+      top: 150px;
+      left: 250px;
+    }
+
+    .text-group {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      top: 120px;
+      left: 550px;
+    }
+
+    .btn {
+      @extend %plchd-btn;
+      height: 45px;
+      position: absolute;
+      top: 285px;
+      right: 320px;
+    }
+  }
+}

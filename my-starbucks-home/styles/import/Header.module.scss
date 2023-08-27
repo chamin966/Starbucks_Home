@@ -1,0 +1,232 @@
+@import '../common/variables';
+@import '../common/placeholders';
+
+/* 수직가운데 정렬 할 때 필요한 것들
+  1. height
+  2. top
+  3. bottom
+  4. margin: auto
+  5. position: absolute(자신에)
+  6. position: relative, fixed, absolute(부모에) */
+
+/* 수평가운데 정렬 할 때 필요한 것들
+  1. left
+  2. right
+  3. margin: auto
+  4. width */
+
+.inner {
+  @extend %plchd-inner;
+}
+
+.header {
+  width: 100%;
+  background-color: $header-backgroud-color;
+  border-bottom: 1px solid $header-border-color;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+
+  > .inner {
+    height: 120px;
+  }
+
+  &__logo {
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  &__sub-menu {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+
+    .menu {
+      display: flex;
+
+      a {
+        font-size: 12px;
+        padding: 11px 16px;
+        display: block;
+        color: $header-a-tag-color;
+
+        &:hover {
+          color: $header-a-tag-hover-color;
+        }
+      }
+
+      li::before {
+        /* 메뉴 구분선 */
+        content: '';
+        display: block;
+        width: 1px;
+        height: 12px;
+        background-color: #e5e5e5;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      li:first-child::before {
+        /* 첫번째 요소를 삭제, 가장 왼쪽의 구분선 삭제 */
+        display: none;
+      }
+    }
+
+    .search {
+      position: relative;
+      height: 34px;
+
+      input {
+        width: 34px;
+        height: 34px;
+        box-sizing: border-box;
+        padding: 4px 10px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid $input-border-color;
+        background-color: white;
+        color: $input-font-color;
+        font-size: $input-font-size;
+
+        &:hover,
+        &:focus {
+          width: 200px;
+          border: 1px solid $green-color;
+          padding: 4px 30px 4px 10px;
+        }
+      }
+
+      .icon {
+        height: 24px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        margin: auto;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__main-menu {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+
+    .main-menu__item {
+      &:hover {
+        background-color: $dropdown-menu-background-color;
+        color: $green-color;
+        border-radius: 6px 6px 0px 0px; /* 좌상단, 우상단만 모서리 깎기 */
+
+        .item__dropdown {
+          display: block;
+        }
+      }
+
+      .item__name {
+        font-size: $sub-menu-title-font-size;
+        padding: 10px 20px 34px 20px;
+      }
+
+      .item__dropdown {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        background-color: $dropdown-menu-background-color;
+        display: none;
+
+        .dropdown-list {
+          display: flex; /* 요소들이 수평으로 정렬 되도록 */
+          padding: 20px 0;
+        }
+
+        .dropdown-item {
+          width: 220px;
+
+          h4 {
+            padding: 3px 0px 12px 0px;
+            font-size: $dropdown-menu-small-font-size;
+            color: white;
+          }
+
+          ul > li {
+            padding: 5px 0;
+            font-size: 12px;
+            color: #999;
+            cursor: pointer;
+
+            &:hover {
+              color: $green-color;
+            }
+          }
+        }
+      }
+
+      .dropdown__info {
+        padding: 26px 0px;
+        font-size: $dropdown-menu-info-font-size;
+        background-image: url('../../public/images/main_menu_pattern.jpg');
+
+        .info__contents {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          h4 {
+            color: $dropdown-menu-info-font-color;
+            font-weight: 700;
+            margin-bottom: 5px;
+          }
+
+          p {
+            color: $green-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__badges {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 132px;
+    right: 12px;
+
+    img {
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: $shadow-effect;
+    }
+  }
+}
+
+.scroll-to-top-button {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 30px;
+  bottom: 30px;
+  height: 42px;
+  width: 42px;
+  border: 2px solid white;
+  color: white;
+  font-size: 22px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: $shadow-effect;
+  z-index: 10;
+}
