@@ -9,8 +9,6 @@ import SeasonMenu from './sections/SeasonMenu';
 import Visual from './sections/Visual';
 import YoutubePlay from './sections/Youtube';
 
-//TODO: 자세히보기 버튼 추가, 접힌 상태에서 스크롤 기준 변경
-
 function Sections() {
   const [isFold, setIsFold] = useState<boolean>(false);
 

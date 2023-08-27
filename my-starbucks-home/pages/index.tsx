@@ -36,7 +36,7 @@ const Home: NextPage<Props> = ({ menus }) => {
 export default Home;
 
 export async function getStaticProps() {
-  // 개발 환경에서의 절대 경로 설정 = http://localhost:3000/api/stores
+  // 개발 환경에서의 절대 경로 설정 = http://localhost:3000/api/menus
   const menus = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/menus`
   ).then((res) => res.json());

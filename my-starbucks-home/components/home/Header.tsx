@@ -162,6 +162,7 @@ function Header({ menus }: Props) {
         className={styles['scroll-to-top-button']}
         ref={scrollToTopBtnRef}
         onClick={scrollToTop}
+        aria-label="맨 위로 스크롤 올리기"
       >
         <IoArrowUp />
       </button>

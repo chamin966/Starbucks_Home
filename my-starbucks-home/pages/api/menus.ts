@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { Menu } from '@/types/menu';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

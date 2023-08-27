@@ -77,12 +77,14 @@ function NoticePromotionSlide() {
       <button
         className={`${styles['embla__control-button']} ${styles['button--prev']}`}
         onClick={scrollPrev}
+        aria-label="슬라이드 이전으로 넘김"
       >
         <IoArrowBackOutline />
       </button>
       <button
         className={`${styles['embla__control-button']} ${styles['button--next']}`}
         onClick={scrollNext}
+        aria-label="슬라이드 다음으로 넘김"
       >
         <IoArrowForwardOutline />
       </button>
