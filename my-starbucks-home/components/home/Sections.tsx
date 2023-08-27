@@ -1,3 +1,4 @@
+import FindStore from './sections/FindStore';
 import Notice from './sections/Notice';
 import PickFavorite from './sections/PickFavorite';
 import ReserveCoffee from './sections/ReserveCoffee';
@@ -18,6 +19,7 @@ function Sections() {
       <ReserveCoffee />
       <PickFavorite />
       <ReserveStore />
+      <FindStore />
     </main>
   );
 }
