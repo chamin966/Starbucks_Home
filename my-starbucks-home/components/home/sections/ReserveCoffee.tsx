@@ -7,6 +7,7 @@ function ReserveCoffee() {
   const logoRef = useRef<HTMLImageElement | null>(null);
   const textRef = useRef<HTMLImageElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
+  const btnRef = useRef<HTMLButtonElement | null>(null);
 
   const evalScrollY = () => {
     let tl = gsap.timeline();
@@ -14,10 +15,12 @@ function ReserveCoffee() {
       tl.to(logoRef.current, { duration: 0.4, opacity: 1, x: 100 });
       tl.to(textRef.current, { duration: 0.5, opacity: 1, x: 100 });
       tl.to(imgRef.current, { duration: 0.5, opacity: 1, x: 100 });
+      tl.to(btnRef.current, { duration: 0.5, opacity: 1, x: 0 });
     } else {
       gsap.to(logoRef.current, { duration: 0, opacity: 0, x: -50 });
       gsap.to(textRef.current, { duration: 0, opacity: 0, x: 0 });
       gsap.to(imgRef.current, { duration: 0, opacity: 0, x: 200 });
+      gsap.to(btnRef.current, { duration: 0, opacity: 0, x: 100 });
     }
   };
 
@@ -55,7 +58,9 @@ function ReserveCoffee() {
           height={420}
           width={444}
         />
-        <button className={styles['btn']}>자세히 보기</button>
+        <button ref={btnRef} className={styles['btn']}>
+          자세히 보기
+        </button>
       </div>
     </section>
   );

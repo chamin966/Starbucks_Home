@@ -43,5 +43,13 @@
       top: 120px;
       left: 550px;
     }
+
+    .btn {
+      @extend %plchd-btn;
+      height: 45px;
+      position: absolute;
+      top: 285px;
+      right: 320px;
+    }
   }
 }
