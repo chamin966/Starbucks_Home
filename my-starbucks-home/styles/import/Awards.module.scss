@@ -1,8 +1,3 @@
-@import '../common/placeholders';
-
 .awards {
   background-color: #282828;
-  &__inner {
-    @extend %plchd-inner;
-  }
 }

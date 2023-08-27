@@ -1,21 +1,27 @@
-.embla {
+@import '../common/placeholders';
+
+.awards-slide {
   position: relative;
-  overflow: hidden;
-  padding-left: 30px;
+  &__inner {
+    @extend %plchd-inner;
+    .embla {
+      position: relative;
+      overflow: hidden;
 
-  &__viewport {
-    .embla__container {
-      height: 120px;
-      display: flex;
-      align-items: center;
+      .embla__viewport {
+        .embla__container {
+          height: 120px;
+          display: flex;
+          align-items: center;
 
-      .embla__slide {
-        flex: 0 0 20%;
+          .embla__slide {
+            flex: 0 0 220px;
+          }
+        }
       }
     }
   }
-
-  &__control-button {
+  .control-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,17 +34,20 @@
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
+    color: #333;
+    border: 2px solid #333;
+    transition: all 0.5s;
 
     &:hover {
       opacity: 1;
     }
 
     &.button--prev {
-      left: 0;
+      left: 110px;
     }
 
     &.button--next {
-      right: 0;
+      right: 110px;
     }
   }
 }

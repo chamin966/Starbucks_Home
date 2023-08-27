@@ -4,6 +4,8 @@ import styles from '@/styles/import/NoticePromotionSlide.module.scss';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
+import { IoArrowForwardOutline } from 'react-icons/io5';
+import { IoArrowBackOutline } from 'react-icons/io5';
 
 function NoticePromotionSlide() {
   // TODO: promotion Image 태그 alt 작성, 백그라운드 컬러 넣기
@@ -76,13 +78,13 @@ function NoticePromotionSlide() {
         className={`${styles['embla__control-button']} ${styles['button--prev']}`}
         onClick={scrollPrev}
       >
-        {'<'}
+        <IoArrowBackOutline />
       </button>
       <button
         className={`${styles['embla__control-button']} ${styles['button--next']}`}
         onClick={scrollNext}
       >
-        {'>'}
+        <IoArrowForwardOutline />
       </button>
     </div>
   );

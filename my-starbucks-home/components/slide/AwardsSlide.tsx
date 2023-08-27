@@ -5,8 +5,8 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import { useCallback } from 'react';
 
-import { IoChevronBackOutline } from 'react-icons/io5';
-import { IoChevronForwardOutline } from 'react-icons/io5';
+import { IoArrowForwardOutline } from 'react-icons/io5';
+import { IoArrowBackOutline } from 'react-icons/io5';
 
 function AwardsSlide() {
   const options: EmblaOptionsType = { loop: true };
@@ -41,29 +41,36 @@ function AwardsSlide() {
 
   return (
     <section className={styles['awards-slide']}>
-      <div className={styles['embla']}>
-        <div className={styles['embla__viewport']} ref={emblaRef}>
-          <div className={styles['embla__container']}>
-            {imagesPaths.map((path, i) => (
-              <div key={i} className={styles['embla__slide']}>
-                <Image src={path} alt="어워즈 이미지" width={192} height={40} />
-              </div>
-            ))}
+      <div className={styles['awards-slide__inner']}>
+        <div className={styles['embla']}>
+          <div className={styles['embla__viewport']} ref={emblaRef}>
+            <div className={styles['embla__container']}>
+              {imagesPaths.map((path, i) => (
+                <div key={i} className={styles['embla__slide']}>
+                  <Image
+                    src={path}
+                    alt="어워즈 이미지"
+                    width={192}
+                    height={40}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <button
-          className={`${styles['embla__control-button']} ${styles['button--prev']}`}
-          onClick={scrollPrev}
-        >
-          <IoChevronBackOutline />
-        </button>
-        <button
-          className={`${styles['embla__control-button']} ${styles['button--next']}`}
-          onClick={scrollNext}
-        >
-          <IoChevronForwardOutline />
-        </button>
       </div>
+      <button
+        className={`${styles['control-button']} ${styles['button--prev']}`}
+        onClick={scrollPrev}
+      >
+        <IoArrowBackOutline />
+      </button>
+      <button
+        className={`${styles['control-button']} ${styles['button--next']}`}
+        onClick={scrollNext}
+      >
+        <IoArrowForwardOutline />
+      </button>
     </section>
   );
 }
