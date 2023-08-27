@@ -15,9 +15,9 @@ function ReserveCoffee() {
       tl.to(textRef.current, { duration: 0.5, opacity: 1, x: 100 });
       tl.to(imgRef.current, { duration: 0.5, opacity: 1, x: 100 });
     } else {
-      tl.to(logoRef.current, { duration: 0, opacity: 0, x: -50 });
-      tl.to(textRef.current, { duration: 0, opacity: 0, x: 0 });
-      tl.to(imgRef.current, { duration: 0, opacity: 0, x: 200 });
+      gsap.to(logoRef.current, { duration: 0, opacity: 0, x: -50 });
+      gsap.to(textRef.current, { duration: 0, opacity: 0, x: 0 });
+      gsap.to(imgRef.current, { duration: 0, opacity: 0, x: 200 });
     }
   };
 
@@ -55,6 +55,7 @@ function ReserveCoffee() {
           height={420}
           width={444}
         />
+        <button className={styles['btn']}>자세히 보기</button>
       </div>
     </section>
   );
