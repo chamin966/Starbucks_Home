@@ -1,0 +1,28 @@
+@import '../common/placeholders';
+
+.resserve-coffee {
+  background-image: url(../../public/images/reserve_bg.jpg);
+  height: 400px;
+
+  &__inner {
+    @extend %plchd-inner;
+
+    .inner__logo {
+      position: absolute;
+      top: 110px;
+      left: 0;
+    }
+
+    .inner-text {
+      position: absolute;
+      top: 124px;
+      left: 208px;
+    }
+
+    .inner__imgage {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
