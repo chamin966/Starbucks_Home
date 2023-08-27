@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Awards from './sections/Awards';
 import FindStore from './sections/FindStore';
 import Notice from './sections/Notice';
@@ -11,16 +12,18 @@ import YoutubePlay from './sections/Youtube';
 //TODO: 자세히보기 버튼 추가, 접힌 상태에서 스크롤 기준 변경
 
 function Sections() {
+  const [isFold, setIsFold] = useState<boolean>(false);
+
   return (
     <main>
       <Visual />
-      <Notice />
+      <Notice isFold={isFold} setIsFold={setIsFold} />
       <YoutubePlay />
-      <SeasonMenu />
-      <ReserveCoffee />
-      <PickFavorite />
+      <SeasonMenu isFold={isFold} />
+      <ReserveCoffee isFold={isFold} />
+      <PickFavorite isFold={isFold} />
       <ReserveStore />
-      <FindStore />
+      <FindStore isFold={isFold} />
       <Awards />
     </main>
   );

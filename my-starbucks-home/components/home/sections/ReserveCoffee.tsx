@@ -3,7 +3,11 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-function ReserveCoffee() {
+type Props = {
+  isFold: boolean;
+};
+
+function ReserveCoffee({ isFold }: Props) {
   const logoRef = useRef<HTMLImageElement | null>(null);
   const textRef = useRef<HTMLImageElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -11,7 +15,9 @@ function ReserveCoffee() {
 
   const evalScrollY = () => {
     let tl = gsap.timeline();
-    if (window.scrollY > 2000) {
+    let triggerLine = 2000;
+    if (isFold) triggerLine -= 635;
+    if (window.scrollY > triggerLine) {
       tl.to(logoRef.current, { duration: 0.4, opacity: 1, x: 100 });
       tl.to(textRef.current, { duration: 0.5, opacity: 1, x: 100 });
       tl.to(imgRef.current, { duration: 0.5, opacity: 1, x: 100 });

@@ -3,13 +3,19 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-function SeasonMenu() {
+type Props = {
+  isFold: boolean;
+};
+
+function SeasonMenu({ isFold }: Props) {
   const productImgRef = useRef<HTMLImageElement | null>(null);
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const textRef = useRef<HTMLImageElement[]>([]);
 
   const evalScrollY = () => {
-    if (window.scrollY > 1750) {
+    let triggerLine = 1750;
+    if (isFold) triggerLine -= 635;
+    if (window.scrollY > triggerLine) {
       gsap.to(productImgRef.current, { opacity: 1, x: 100, duration: 1.5 });
       gsap.to(btnRef.current, { opacity: 1, x: 0, duration: 1 });
       textRef.current.forEach((item) => {
@@ -37,10 +43,6 @@ function SeasonMenu() {
       window.removeEventListener('scroll', evalScrollY);
     };
   });
-
-  useEffect(() => {
-    evalScrollY();
-  }, []);
 
   return (
     <section className={styles['season-menu']}>

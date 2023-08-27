@@ -3,14 +3,20 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-function PickFavorite() {
+type Props = {
+  isFold: boolean;
+};
+
+function PickFavorite({ isFold }: Props) {
   const logoRef = useRef<HTMLImageElement | null>(null);
   const textRef = useRef<HTMLImageElement | null>(null);
   const btnRef = useRef<HTMLButtonElement | null>(null);
 
   const evalScrollY = () => {
     let tl = gsap.timeline();
-    if (window.scrollY > 2350) {
+    let triggerLine = 2350;
+    if (isFold) triggerLine -= 635;
+    if (window.scrollY > triggerLine) {
       tl.to(logoRef.current, { duration: 0.5, opacity: 1, x: 100 });
       tl.to(textRef.current, { duration: 1, opacity: 1, x: 100 });
       tl.to(btnRef.current, { duration: 1, opacity: 1, x: 0 });

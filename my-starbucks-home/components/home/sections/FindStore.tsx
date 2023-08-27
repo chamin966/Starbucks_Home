@@ -3,7 +3,11 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-function FindStore() {
+type Props = {
+  isFold: boolean;
+};
+
+function FindStore({ isFold }: Props) {
   const img1Ref = useRef<HTMLImageElement | null>(null);
   const img2Ref = useRef<HTMLImageElement | null>(null);
   const titleRef = useRef<HTMLImageElement | null>(null);
@@ -12,7 +16,9 @@ function FindStore() {
 
   const evalScrollY = () => {
     let tl = gsap.timeline();
-    if (window.scrollY > 3715) {
+    let triggerLine = 3715;
+    if (isFold) triggerLine -= 635;
+    if (window.scrollY > triggerLine) {
       gsap.to(img1Ref.current, { duration: 0.7, opacity: 1, x: 100 });
       gsap.to(img2Ref.current, { duration: 0.7, opacity: 1, x: 100 });
       tl.to(titleRef.current, { duration: 0.5, opacity: 1, x: 100 });

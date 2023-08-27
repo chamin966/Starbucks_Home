@@ -8,26 +8,28 @@ import NoticeLineSlide from '@/components/slide/NoticeLineSlide';
 import NoticePromotionSlide from '@/components/slide/NoitcePromotionSlide';
 import Rewards from './Rewards';
 
-function Notice() {
-  const [isFold, setIsFold] = useState<boolean>(true);
+type Props = {
+  isFold: boolean;
+  setIsFold: (v: boolean) => void;
+};
+
+function Notice({ isFold, setIsFold }: Props) {
   const promotionRef = useRef<HTMLDivElement | null>(null);
 
   const onClickFoldingIcon = () => {
     if (isFold) {
       setIsFold(false);
-
+      gsap.to(promotionRef.current, {
+        duration: 0.3,
+        ease: 'power1',
+        height: '635px',
+      });
+    } else {
+      setIsFold(true);
       gsap.to(promotionRef.current, {
         duration: 0.3,
         ease: 'power1',
         height: 0,
-      });
-    } else {
-      setIsFold(true);
-
-      gsap.to(promotionRef.current, {
-        duration: 0.3,
-        ease: 'power1',
-        height: '593px',
       });
     }
   };
@@ -46,7 +48,7 @@ function Notice() {
           <div className={styles['inner__right']}>
             <h2>스타벅스 프로모션</h2>
             <div className={styles['inner__icon']} onClick={onClickFoldingIcon}>
-              {isFold ? <LuFoldVertical /> : <LuUnfoldVertical />}
+              {isFold ? <LuUnfoldVertical /> : <LuFoldVertical />}
             </div>
           </div>
         </div>
