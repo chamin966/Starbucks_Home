@@ -1,4 +1,5 @@
 import Notice from './sections/Notice';
+import SeasonMenu from './sections/SeasonMenu';
 import Visual from './sections/Visual';
 import YoutubePlay from './sections/Youtube';
 
@@ -8,6 +9,7 @@ function Sections() {
       <Visual />
       <Notice />
       <YoutubePlay />
+      <SeasonMenu />
     </main>
   );
 }

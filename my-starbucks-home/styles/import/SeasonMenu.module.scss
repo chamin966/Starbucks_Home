@@ -1,0 +1,25 @@
+@import '../common/placeholders';
+
+.season-menu {
+  background-image: url('../../public/images/season_product_bg.jpg');
+  height: 400px;
+
+  &__inner {
+    @extend %plchd-inner;
+    height: 100%;
+
+    .text-group {
+      position: absolute;
+      top: 110px;
+      right: 100px;
+
+      &.title {
+        left: 50%;
+      }
+      &.description {
+        top: 45%;
+        left: 50%;
+      }
+    }
+  }
+}
