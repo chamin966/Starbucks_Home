@@ -5,12 +5,14 @@ import { useEffect, useRef } from 'react';
 
 function SeasonMenu() {
   const productImgRef = useRef<HTMLImageElement | null>(null);
+  const btnRef = useRef<HTMLButtonElement | null>(null);
   const textRef = useRef<HTMLImageElement[]>([]);
 
   const evalScrollY = () => {
     if (window.scrollY > 1750) {
       gsap.to(productImgRef.current, { opacity: 1, x: 100, duration: 1.5 });
-      textRef.current.forEach((item, index) => {
+      gsap.to(btnRef.current, { opacity: 1, x: 0, duration: 1 });
+      textRef.current.forEach((item) => {
         gsap.to(item, {
           opacity: 1,
           x: 0,
@@ -19,6 +21,7 @@ function SeasonMenu() {
       });
     } else {
       gsap.to(productImgRef.current, { opacity: 0, x: 0, duration: 1.5 });
+      gsap.to(btnRef.current, { opacity: 0.5, x: 100 });
       textRef.current.forEach((item) => {
         gsap.to(item, {
           opacity: 0.5,
@@ -66,6 +69,9 @@ function SeasonMenu() {
           height={57}
           width={488}
         />
+        <button ref={btnRef} className={styles['btn']}>
+          자세히 보기
+        </button>
       </div>
     </section>
   );

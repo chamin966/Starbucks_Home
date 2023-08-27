@@ -24,5 +24,20 @@
       top: 0;
       right: 0;
     }
+
+    .btn {
+      @extend %plchd-btn;
+      height: 45px;
+      color: #d1a486;
+      border-color: #d1a486;
+      position: absolute;
+      top: 250px;
+      left: 19.3rem;
+
+      &:hover {
+        color: white;
+        background-color: #d1a486;
+      }
+    }
   }
 }

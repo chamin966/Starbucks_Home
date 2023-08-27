@@ -33,6 +33,14 @@
       }
       .back {
         transform: rotateY(180deg);
+        .btn {
+          @extend %plchd-btn;
+          height: 45px;
+          position: absolute;
+          bottom: 60px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
 
       .front,

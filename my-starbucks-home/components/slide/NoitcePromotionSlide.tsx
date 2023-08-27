@@ -65,6 +65,9 @@ function NoticePromotionSlide() {
               }`}
             >
               <Image src={path} alt={altTexts[i]} sizes="819px" fill />
+              <button className={`${styles['btn']} ${styles['btn--more']}`}>
+                자세히 보기
+              </button>
             </div>
           ))}
         </div>
