@@ -1,0 +1,44 @@
+.embla {
+  position: relative;
+  overflow: hidden;
+  padding-left: 30px;
+
+  &__viewport {
+    .embla__container {
+      height: 120px;
+      display: flex;
+      align-items: center;
+
+      .embla__slide {
+        flex: 0 0 20%;
+      }
+    }
+  }
+
+  &__control-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    opacity: 0.4;
+    color: #333;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.button--prev {
+      left: 0;
+    }
+
+    &.button--next {
+      right: 0;
+    }
+  }
+}

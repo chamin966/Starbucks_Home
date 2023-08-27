@@ -1,3 +1,4 @@
+import Awards from './sections/Awards';
 import FindStore from './sections/FindStore';
 import Notice from './sections/Notice';
 import PickFavorite from './sections/PickFavorite';
@@ -20,6 +21,7 @@ function Sections() {
       <PickFavorite />
       <ReserveStore />
       <FindStore />
+      <Awards />
     </main>
   );
 }
