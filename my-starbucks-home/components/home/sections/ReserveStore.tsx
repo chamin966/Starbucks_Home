@@ -21,6 +21,7 @@ function ReserveStore() {
               height={334}
               width={334}
             />
+            <button className={styles['btn']}>매장 안내</button>
           </div>
           <div></div>
         </div>
