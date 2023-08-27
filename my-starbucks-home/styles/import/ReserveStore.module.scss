@@ -1,0 +1,46 @@
+@import '../common/placeholders';
+
+.reserve-store {
+  background-image: url('../../public/images/reserve_store_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+
+  &__inner {
+    @extend %plchd-inner;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .medal {
+      width: 334px;
+      height: 334px;
+      perspective: 2000px;
+
+      &:hover {
+        .front {
+          transform: rotateY(180deg);
+        }
+        .back {
+          transform: rotateY(0deg);
+        }
+      }
+
+      .front {
+        transform: rotateY(0deg);
+      }
+      .back {
+        transform: rotateY(180deg);
+      }
+
+      .front,
+      .back {
+        backface-visibility: hidden;
+        position: absolute;
+        transition: 1s;
+      }
+    }
+  }
+}

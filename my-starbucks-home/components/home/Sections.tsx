@@ -1,6 +1,7 @@
 import Notice from './sections/Notice';
 import PickFavorite from './sections/PickFavorite';
 import ReserveCoffee from './sections/ReserveCoffee';
+import ReserveStore from './sections/ReserveStore';
 import SeasonMenu from './sections/SeasonMenu';
 import Visual from './sections/Visual';
 import YoutubePlay from './sections/Youtube';
@@ -16,6 +17,7 @@ function Sections() {
       <SeasonMenu />
       <ReserveCoffee />
       <PickFavorite />
+      <ReserveStore />
     </main>
   );
 }

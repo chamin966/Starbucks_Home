@@ -8,7 +8,6 @@ function SeasonMenu() {
   const textRef = useRef<HTMLImageElement[]>([]);
 
   const evalScrollY = () => {
-    console.log(window.scrollY);
     if (window.scrollY > 1750) {
       gsap.to(productImgRef.current, { opacity: 1, x: 100, duration: 1.5 });
       textRef.current.forEach((item, index) => {
