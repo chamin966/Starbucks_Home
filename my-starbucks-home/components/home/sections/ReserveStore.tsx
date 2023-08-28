@@ -12,6 +12,7 @@ function ReserveStore() {
               alt="리저브 스토어 메달 앞면"
               height={334}
               width={334}
+              priority
             />
           </div>
           <div className={styles['back']}>
@@ -20,6 +21,7 @@ function ReserveStore() {
               alt="리저브 스토어 메달 뒷면"
               height={334}
               width={334}
+              priority
             />
             <button className={styles['btn']}>매장 안내</button>
           </div>

@@ -54,6 +54,7 @@ function SeasonMenu({ isFold }: Props) {
           alt="시즌 메뉴"
           height={499}
           width={493}
+          priority
         />
         <Image
           ref={(el) => el && textRef.current.push(el)}
@@ -62,6 +63,7 @@ function SeasonMenu({ isFold }: Props) {
           alt="시즌 메뉴"
           height={57}
           width={262}
+          priority
         />
         <Image
           ref={(el) => el && textRef.current.push(el)}
@@ -70,6 +72,7 @@ function SeasonMenu({ isFold }: Props) {
           alt="시즌 메뉴"
           height={57}
           width={488}
+          priority
         />
         <button ref={btnRef} className={styles['btn']}>
           자세히 보기

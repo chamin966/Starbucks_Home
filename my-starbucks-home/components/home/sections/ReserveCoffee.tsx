@@ -47,6 +47,7 @@ function ReserveCoffee({ isFold }: Props) {
           alt="리저브 커피 로고"
           height={186}
           width={152}
+          priority
         />
         <Image
           ref={textRef}
@@ -55,6 +56,7 @@ function ReserveCoffee({ isFold }: Props) {
           alt="리저브 커피 로고"
           height={120}
           width={450}
+          priority
         />
         <Image
           ref={imgRef}
@@ -63,6 +65,7 @@ function ReserveCoffee({ isFold }: Props) {
           alt="리저브 커피 로고"
           height={420}
           width={444}
+          priority
         />
         <button ref={btnRef} className={styles['btn']}>
           자세히 보기

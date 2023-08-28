@@ -50,6 +50,7 @@ function FindStore({ isFold }: Props) {
           alt="매장 찾기 이미지1"
           width={350}
           height={350}
+          priority
         />
         <Image
           ref={img2Ref}
@@ -58,6 +59,7 @@ function FindStore({ isFold }: Props) {
           alt="매장 찾기 이미지2"
           width={216}
           height={216}
+          priority
         />
         <Image
           className={styles['deco1']}
@@ -65,6 +67,7 @@ function FindStore({ isFold }: Props) {
           alt="매장 찾기 데코 이미지1"
           width={343}
           height={92}
+          priority
         />
         <Image
           className={styles['deco2']}
@@ -72,6 +75,7 @@ function FindStore({ isFold }: Props) {
           alt="매장 찾기 데코 이미지2"
           width={230}
           height={102}
+          priority
         />
         <div className={styles['text-group']}>
           <Image
@@ -81,6 +85,7 @@ function FindStore({ isFold }: Props) {
             alt="매장 찾기 텍스트1"
             width={385}
             height={54}
+            priority
           />
           <Image
             ref={descRef}
@@ -89,6 +94,7 @@ function FindStore({ isFold }: Props) {
             alt="매장 찾기 텍스트2"
             width={366}
             height={61}
+            priority
           />
         </div>
         <button ref={btnRef} className={styles['btn']}>
