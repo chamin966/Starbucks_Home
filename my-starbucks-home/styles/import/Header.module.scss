@@ -95,6 +95,7 @@
         background-color: white;
         color: $input-font-color;
         font-size: $input-font-size;
+        transition: width 0.5s;
 
         &:hover,
         &:focus {
