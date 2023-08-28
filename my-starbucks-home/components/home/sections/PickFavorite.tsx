@@ -44,6 +44,7 @@ function PickFavorite({ isFold }: Props) {
             alt="픽 페이버릿 텍스트1"
             width={258}
             height={204}
+            priority
           />
           <Image
             ref={textRef}
@@ -51,6 +52,7 @@ function PickFavorite({ isFold }: Props) {
             alt="픽 페이버릿 텍스트2"
             width={362}
             height={156}
+            priority
           />
         </div>
         <button
